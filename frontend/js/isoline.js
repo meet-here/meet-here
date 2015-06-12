@@ -33,4 +33,5 @@ function addPolygonToMap(map, polygon) {
       }
     })
   );
+  explorePolygon(polygon);
 }
