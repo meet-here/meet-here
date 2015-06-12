@@ -32,4 +32,5 @@ var placesService = new H.places.Here(platform.getPlacesService());
 var exploreService = new H.places.Explore(platform.getPlacesService());
 
 setUpClickListener(map, behavior);
-calculateAndDisplayRoute(map, router, 'geo!52.0,13.4', 'geo!52.5,13.4', 'car');
+// calculateAndDisplayRoute(map, router, 'geo!52.0,13.4', 'geo!52.5,13.4', 'car');
+
