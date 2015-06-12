@@ -1,9 +1,10 @@
 var markers = [];
+
 $(document).ready(function(){
 
     var platform = new H.service.Platform({
-      'app_id': 'SuEOSiTaftUo7MUtmazp',
-      'app_code': 'HPLOL-cV-VS4WAC5SvCGBw'
+      'app_id': APP_ID,
+      'app_code': APP_CODE
     });
 
     // Obtain the default map types from the platform object:
@@ -15,12 +16,13 @@ $(document).ready(function(){
         document.getElementById('map'),
         defaultLayers.normal.map,
         {
-          zoom: 10,
+          zoom: 14,
           center: { lat: 52.5, lng: 13.4 }
         });
     var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
     setUpClickListener(map, behavior);
+    addMarkersToMap(map);
 });
 
 function setUpClickListener(map, behavior) {
@@ -62,9 +64,21 @@ function setUpClickListener(map, behavior) {
     }
     }, false);
 
-
     markers.push(marker);
     map.addObject(marker);
+
   });
+}
+
+function addMarkersToMap(map) {
+    var marker1 = new H.map.Marker({lat: 52.5411, lng: 13.394});
+    var marker2 = new H.map.Marker({lat: 52.5193, lng: 13.39828});
+    var marker3 = new H.map.Marker({lat: 52.53379, lng: 13.394163});
+    var marker4 = new H.map.Marker({lat: 52.5216785, lng: 13.408497});
+
+    var group = new H.map.Group();
+    group.addObjects([marker1, marker2, marker3, marker4]);
+    map.addObject(group);
+    map.setViewBounds(group.getBounds());
 }
 
