@@ -66,8 +66,8 @@
           </ul>
         </div>
         <script src="js/routing.js" type="text/javascript"></script>
-        <script src="js/isoline.js" type="text/javascript"></script>
         <script src="js/places.js" type="text/javascript"></script>
+        <script src="js/isoline.js" type="text/javascript"></script>
         <script src="js/user_markers.js" type="text/javascript"></script>
         <script src="js/main.js" type="text/javascript"></script>
 	<script>
@@ -75,13 +75,8 @@
 			range: "min",
 		  min: 5,
 		  max: 120,
-			value: 20,
-      stop: function( event, ui ) {
-        $(markers).each(function (index, elem) {
-          // makeIsoline(map, elem.getPosition(), ui.value);
-          // redrawIsolines(map);
-        });
-      }
+			value: isochromeRadius,
+      stop: function( event, ui ) { isochromeRadius = ui.value; }
     });
 	</script>
     </body>

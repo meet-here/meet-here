@@ -49,6 +49,9 @@ function intersectPolygons(polygons) {
 		if (polygon.length == 0) return undefined;
 		polygon=intersectionPolygons(polygon,polygons_converted[i]);
 	}
+	
+	if (typeof polygon == 'undefined') return polygon;
+		if (polygon.length == 0) return undefined;
   
   geoStrip = new H.geo.Strip();
   for (i = 0; i < polygon.length; ++i) {
@@ -61,6 +64,7 @@ function intersectPolygons(polygons) {
       lineWidth: 2
     }
   })
+  explorePolygon(polygonObj);
   return polygonObj;
   
 }
@@ -72,6 +76,9 @@ function intersectPolygons(polygons) {
 function redrawIsolines(map) {
   $(isolineObjects).each(function (index, elem) {
     map.removeObject(elem)
+  });
+  $(markers).each( function (index, elem ) {
+    makeIsoline(map,elem.getPosition(),isochromeRadius);
   });
   $(isolines).each (function (index, elem) {
     addPolygonToMap(map,elem);
@@ -93,4 +100,5 @@ function addPolygonToMap(map, polygon) {
   })
   // map.addObject(polygonObj);
   isolineObjects.push(map.addObject(polygonObj));
+  
 }
