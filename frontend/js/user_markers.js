@@ -17,7 +17,7 @@ function setUpClickListener(map, behavior) {
         return;
     }
 
-    
+
     var icon = new H.map.Icon(user_marker.replace("{FILL}", "red"));
     var marker = new H.map.Marker({lat: coord.lat, lng: coord.lng});
     marker.draggable = true;
@@ -53,8 +53,7 @@ function setUpClickListener(map, behavior) {
 
     markers.push(marker);
     map.addObject(marker);
-    drawIsoline(map, marker.getPosition())
-
+    makeIsoline(map, marker.getPosition(), 5)
   });
 }
 
@@ -66,7 +65,7 @@ function addMarkersToMap(map) {
         {lat: 52.5216785, lng: 13.408497}
     ];
 
-    $(positions).each(function (index, element){        
+    $(positions).each(function (index, element){
         var marker = new H.map.Marker(element);
         var icon = new H.map.Icon(user_marker.replace("{FILL}", "#18d"));
         marker.setIcon(icon);
