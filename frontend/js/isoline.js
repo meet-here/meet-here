@@ -22,10 +22,16 @@ function makeIsoline(map, point, timeframe) {
   });
 }
 
-function redrawIsolines(map) {
-  $(isolineObjects).each(function (index, elem) {
-    map.removeObject(elem)
+function deleteAllPolygons(map) {
+  $(isolineObjects).each( function ( index, elem ) {
+    map.removeObject(elem);
   });
+  isolineObjects.length = 0;
+}
+
+function redrawIsolines(map) {
+  deleteAllPolygons(map);
+  isolines.length = 0;
   $(markers).each( function (index, elem ) {
     makeIsoline(map,elem.getPosition(),isochromeRadius);
   });

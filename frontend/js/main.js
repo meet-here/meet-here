@@ -26,11 +26,10 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 var landMarkMarkerGroup = new H.map.Group();
 
-addMarkersToMap(map);
+// addMarkersToMap(map);
 
 var placesService = new H.places.Here(platform.getPlacesService());
 var exploreService = new H.places.Explore(platform.getPlacesService());
 
 setUpClickListener(map, behavior);
 calculateAndDisplayRoute(map, router, 'geo!52.0,13.4', 'geo!52.5,13.4', 'car');
-

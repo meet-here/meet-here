@@ -74,7 +74,10 @@
 		  min: 5,
 		  max: 120,
 			value: isochromeRadius,
-      stop: function( event, ui ) { isochromeRadius = ui.value; }
+      stop: function( event, ui ) {
+        isochromeRadius = ui.value;
+        redrawIsolines(map);
+        }
     });
 	</script>
     </body>
