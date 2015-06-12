@@ -101,18 +101,46 @@ function drawIsoline(map, point) {
       app_code: 'AJKnXv84fjrb0KIHawS0Tg'
     },
     success: function (data) {
-      addPolygonToMap(map,data.Response.isolines[0].value);
+	var geoStrip_ = intersectPolygons([data.Response.isolines[0].value]);
+      addPolygonToMap(map, geoStrip_);
     }
   });
 }
 
-function addPolygonToMap(map, polygon) {
-  var geoStrip = new H.geo.Strip();
-  for (i = 0; i < polygon.length; ++i) {
-    var coords = polygon[i].split(',');
-    var point = new H.geo.Point(parseFloat(coords[0]), parseFloat(coords[1]));
-    geoStrip.pushPoint(point);
+function Point(x,y) {
+this.x=x;
+this.y=y;
+
+}
+
+function intersectPolygons(polygons) {
+//intersect polygons, return a geostrip for result
+	polygon = polygons[0];
+	var p_polygon = [];
+	var p_polygon2 = [];
+	for (i = 0; i < polygon.length; ++i) {
+		var coords = polygon[i].split(',');
+		var point = new Point(parseFloat(coords[0]), parseFloat(coords[1]));
+		p_polygon.push(point)
+		point = new Point(parseFloat(coords[0])+0.002, parseFloat(coords[1])+0.002);
+		p_polygon2.push(point)
   };
+  
+  p_polygon=intersectionPolygons(p_polygon,p_polygon2)
+  //p_polygon=p_polygon[0];
+  
+  geoStrip = new H.geo.Strip();
+  for (i = 0; i < p_polygon.length; ++i) {
+    var point_ = new H.geo.Point(p_polygon[i].x,p_polygon[i].y);
+    geoStrip.pushPoint(point_);
+  };
+  return geoStrip;
+  
+}
+
+
+
+function addPolygonToMap(map, geoStrip) {
   map.addObject(
     new H.map.Polygon(geoStrip, {
       style: {
