@@ -49,5 +49,5 @@ function addPolygonToMap(map, polygon) {
   })
   // map.addObject(polygonObj);
   isolineObjects.push(map.addObject(polygonObj));
-  explorePolygon(polygon);
+  explorePolygon(polygonObj);
 }
