@@ -1,16 +1,19 @@
 <!DOCTYPE html>
   <html>
     <head>
-        <meta name="viewport" content="initial-scale=1.0, 
+        <meta name="viewport" content="initial-scale=1.0,
           width=device-width" />
-        <script src="jquery-2.1.4.js" type="text/javascript"></script>
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"
-
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+        <link href="js/jquery-ui/jquery-ui.css" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css"
           href="https://js.api.here.com/v3/3.0/mapsjs-ui.css" />
-        <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js" 
+
+        <script src="js/jquery-2.1.4.js" type="text/javascript"></script>
+        <script src="js/jquery-ui/jquery-ui.js"></script>
+
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-core.js"
           type="text/javascript" charset="utf-8"></script>
-        <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js" 
+        <script src="http://js.api.here.com/v3/3.0/mapsjs-service.js"
           type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" charset="UTF-8"
           src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
@@ -18,7 +21,7 @@
           src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
         <script type="text/javascript" charset="UTF-8"
           src="https://js.api.here.com/v3/3.0/mapsjs-places.js"></script>
-        
+
         <script src="credentials.js" type="text/javascript"></script>
     </head>
 
@@ -48,9 +51,14 @@
     </style>
 
     <body>
+
+      <!-- Slider -->
+      <h2 class="demoHeaders">Slider</h2>
+      <div id="slider"></div>
+
         <div id="main">
             <div id="map"></div>
-        </div>  
+        </div>
         <div class="infopanel">
           <ul class="infos list-group">
           </ul>
@@ -60,5 +68,13 @@
         <script src="js/places.js" type="text/javascript"></script>
         <script src="js/user_markers.js" type="text/javascript"></script>
         <script src="js/main.js" type="text/javascript"></script>
+	<script>
+		$( "#slider" ).slider({
+			range: "min",
+		  min: 5,
+		  max: 120,
+			value: 20
+        });
+	</script>
     </body>
 </html>
