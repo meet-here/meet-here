@@ -11,7 +11,7 @@ $(document).ready(function(){
 
     // Obtain the default map types from the platform object:
     var defaultLayers = platform.createDefaultLayers();
-    
+
 
     // Instantiate (and display) a map object:
     var map = new H.Map(
@@ -26,7 +26,7 @@ $(document).ready(function(){
     setUpClickListener(map, behavior);
     //addMarkersToMap(map);
 	calculateAndDisplayRoute(map, router, 'geo!52.0,13.4', 'geo!52.5,13.4', 'car');
-    
+
 });
 
 function setUpClickListener(map, behavior) {
@@ -35,7 +35,7 @@ function setUpClickListener(map, behavior) {
   map.addEventListener('tap', function (evt) {
     var coord = map.screenToGeo(evt.currentPointer.viewportX,
             evt.currentPointer.viewportY);
- 
+
     var marker = new H.map.Marker({lat: coord.lat, lng: coord.lng});
     marker.draggable = true;
 
@@ -122,6 +122,7 @@ function addPolygonToMap(map, polygon) {
       }
     })
   );
+}
 
 function addMarkerToMap(map, position) {
     var marker = new H.map.Marker({'lat': position.latitude, 'lng': position.longitude});
@@ -155,7 +156,7 @@ function addRouteShapeToMap(map, route) {
   map.setViewBounds(polyline.getBounds(), true);
 }
 
-// modes are 
+// modes are
 function calculateAndDisplayRoute(map, router, start, end, mode, onResult, onError) {
 	var calculateRouteParams = {
 		'waypoint0': start,
@@ -166,7 +167,7 @@ function calculateAndDisplayRoute(map, router, start, end, mode, onResult, onErr
 		'mode': 'fastest;' + mode + ';traffic:enabled'
 	},
     onSuccess = function(result) {
-        route = result.response.route[0];					
+        route = result.response.route[0];
         console.log(route);
         // extract it from route
         addMarkerToMap(map, route.waypoint[0].mappedPosition);
@@ -175,8 +176,7 @@ function calculateAndDisplayRoute(map, router, start, end, mode, onResult, onErr
 	},
 	onError = function(error) {
 		console.log(error);
-	}    
+	}
 
 	router.calculateRoute(calculateRouteParams, onSuccess, onError);
 }
-
