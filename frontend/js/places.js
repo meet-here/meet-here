@@ -76,8 +76,10 @@ function onError(error) {
 }
 
 function explorePolygon(polygon) {
+    var bounds = polygon.getBounds();
+    var boundingBox = bounds.getLeft() + ',' + bounds.getBottom() + ',' + bounds.getRight() + ',' + bounds.getTop();
     var params = {
-        "in": polygon,
+        "in": boundingBox,
         "cat": "coffee-tea"
     };
 
