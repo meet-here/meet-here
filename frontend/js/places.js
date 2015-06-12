@@ -38,6 +38,7 @@ function showLandmarkInfo(result) {
 
     landMarkMarkerGroup.addEventListener("tap", function (event) {
         var target = event.target;
+        infos.empty();
         // calculate route from every user to this landmark
         var endPosition = target.getPosition();
         var end = 'geo!' + endPosition.lat + ',' + endPosition.lng;
