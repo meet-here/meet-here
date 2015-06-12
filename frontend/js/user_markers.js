@@ -13,7 +13,7 @@ function setUpClickListener(map, behavior) {
             //cat: 'coffee-tea'
         }
 
-        placesService.request(params, {}, showLandmarkInfo, onError);
+        //placesService.request(params, {}, showLandmarkInfo, onError);
         return;
     }
 
@@ -67,7 +67,7 @@ function addMarkersToMap(map) {
 
     $(positions).each(function (index, element){
         var marker = new H.map.Marker(element);
-        var icon = new H.map.Icon(user_marker.replace("{FILL}", "red"));
+        var icon = new H.map.Icon(user_marker.replace("{FILL}", "#18d"));
         marker.setIcon(icon);
         markers.push(marker);
     });

@@ -26,7 +26,7 @@ function addRouteShapeToMap(map, route) {
   // Add the polyline to the map
   map.addObject(polyline);
   // And zoom to its bounding rectangle
-  map.setViewBounds(polyline.getBounds(), true);
+  //map.setViewBounds(polyline.getBounds(), true);
 }
 
 // modes are
@@ -41,10 +41,9 @@ function calculateAndDisplayRoute(map, router, start, end, mode, onResult, onErr
 	},
     onSuccess = function(result) {
         route = result.response.route[0];
-        console.log(route);
         // extract it from route
-        addMarkerToMap(map, route.waypoint[0].mappedPosition);
-        addMarkerToMap(map,      route.waypoint[1].mappedPosition);
+        //addMarkerToMap(map, route.waypoint[0].mappedPosition);
+        //addMarkerToMap(map,      route.waypoint[1].mappedPosition);
         addRouteShapeToMap(map, route);
 	},
 	onError = function(error) {
