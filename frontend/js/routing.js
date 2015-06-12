@@ -22,7 +22,7 @@ function addRouteShapeToMap(map, route) {
   polyline = new H.map.Polyline(strip, {
     style: {
       lineWidth: 4,
-      strokeColor: 'rgba(0, 128, 255, 0.7)'
+      strokeColor: 'rgba(255, 255, 0, 0.7)'
     }
   });
 	
