@@ -1,3 +1,5 @@
+var current_routes = [];
+
 function addMarkerToMap(map, position) {
     var marker = new H.map.Marker({'lat': position.latitude, 'lng': position.longitude});
     map.addObject(marker);
@@ -23,10 +25,23 @@ function addRouteShapeToMap(map, route) {
       strokeColor: 'rgba(0, 128, 255, 0.7)'
     }
   });
-  // Add the polyline to the map
+	
+	current_routes.push(polyline);
+  
+	// Add the polyline to the map
   map.addObject(polyline);
   // And zoom to its bounding rectangle
   //map.setViewBounds(polyline.getBounds(), true);
+}
+
+function deleteCurrentRoutes() {
+	if (current_routes.length !== 0) {
+		$(current_routes).each(function(index, elem) {
+			map.removeObject(elem);
+		});
+	}
+
+	current_routes = [];
 }
 
 // modes are
