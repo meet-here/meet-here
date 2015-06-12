@@ -95,7 +95,7 @@ function drawIsoline(map, point) {
     jsonp: 'jsoncallback',
     data: {
       mode: 'fastest;car',
-      start: '52.5160,13.3778',
+      start: point.lat.toString()+","+point.lng.toString(),
       time: 'PT0H05M',
       app_id: 'DemoAppId01082013GAL',
       app_code: 'AJKnXv84fjrb0KIHawS0Tg'
