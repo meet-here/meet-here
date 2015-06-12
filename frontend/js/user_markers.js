@@ -53,7 +53,7 @@ function setUpClickListener(map, behavior) {
 
     markers.push(marker);
     map.addObject(marker);
-    makeIsoline(map, marker.getPosition(), 5)
+    makeIsoline(map, marker.getPosition(), isochromeRadius)
   });
 }
 

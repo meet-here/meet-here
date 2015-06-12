@@ -26,6 +26,9 @@ function redrawIsolines(map) {
   $(isolineObjects).each(function (index, elem) {
     map.removeObject(elem)
   });
+  $(markers).each( function (index, elem ) {
+    makeIsoline(map,elem.getPosition(),isochromeRadius);
+  });
   $(isolines).each (function (index, elem) {
     addPolygonToMap(map,elem);
   });
