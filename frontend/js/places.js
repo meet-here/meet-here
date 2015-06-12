@@ -41,7 +41,10 @@ function showLandmarkInfo(result) {
         // calculate route from every user to this landmark
         var endPosition = target.getPosition();
         var end = 'geo!' + endPosition.lat + ',' + endPosition.lng;
-        $(markers).each(function (index, element) {
+				
+				deleteCurrentRoutes();
+       	
+				$(markers).each(function (index, element) {
             var position = element.getPosition();
             var start = 'geo!' + position.lat + ',' + position.lng;
             calculateAndDisplayRoute(map, router, start, end, 'car');
